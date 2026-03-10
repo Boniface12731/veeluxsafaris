@@ -17,10 +17,16 @@ import ForgotPassword from './pages/ForgotPassword.jsx'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';  
 
+import lionsHero from '../src/assets/lionsHero.png'
+import diani from '../src/assets/diani.png'
+
+
 const App = () => {
-  
   return (
-    <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+    <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'
+    //  style={{backgroundImage: `url(${lionsHero})`,}}
+    >
+            
     <ToastContainer/>
       {/*<Navbar/>*/}
       <TopBar/>

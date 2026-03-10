@@ -1,47 +1,102 @@
-import React from 'react'
-import { sliders } from '../assets/assets'
+import React from 'react';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css'; 
+import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+// Save your lions poster image in:
+// src/assets/lions-hero.jpg
+import lionsHero from '../assets/lionsHero.png';
+import diani from '../assets/diani.png'
+import beach from '../assets/beach.png'
+import maasaimara from '../assets/maasaimara.png'
+import caravan from '../assets/caravan.png'
+import road from '../assets/road.png'
+import tree from '../assets/tree.png'
+
+
 const Hero = () => {
-    const imageArray = Object.values(sliders);
-    const settings = {
-        infinite: true,
-        speed: 400,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-      };     
+  const tourismImages = [
+     beach,
+     maasaimara,
+     caravan,
+     road,
+     tree
+  ];
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    pauseOnHover: false,
+  };
 
   return (
-    <div className='flex flex-col sm:flex-row border border-gray-400'>
-        {/* Hero Left Side */}
-        <div className='w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0'>
-           <div className='text-[#414141]'>
-            <div className='flex items-center gap-2'>
-            <p className='w-8 md:w-11 h-[2px] bg-[#414141]'></p>
-            <p className='font-medium text-sm md:text-base falling-text-1'>Bring Art To Life</p>
+    <div
+      className="relative overflow-hidden rounded-xl min-h-[90vh] flex items-center"
+      style={{
+        backgroundImage: `url(${diani})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/55"></div>
+
+      <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 py-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 items-center">
+          {/* Hero Left Side */}
+          <div className="text-white">
+            <div className="flex items-center gap-3 mb-4">
+              <p className="w-10 md:w-14 h-[2px] bg-[#f4c84c]"></p>
+              <p className="font-medium text-sm md:text-base uppercase tracking-wide text-[#f4c84c]">
+                Explore Kenya
+              </p>
             </div>
-        <h1 className='prata-regular text-3xl sm:py-3 lg:text-5xl leading-relaxed sliding-text'>Picture Mart</h1>
-        <div className='flex items-center gap-2'>
-            <p className='font-semibold text-sm md:text-base rising-text'>SHOP NOW</p>
-            <p className='w-8 md:w-11 h-[1px] bg-[#414141]'></p>
-        </div>
-    </div>
-        </div>
 
-      {/*Hero Right Side*/}
-        <Slider className='w-full sm:w-1/2' {...settings}>
-      {imageArray.map((img, index) => (
-        <div key={index}>
-          <img src={img}/>
-        </div>
-      ))}
-    </Slider>  
+            <h1 className="prata-regular text-4xl sm:text-5xl lg:text-6xl leading-tight mb-5">
+              Veeluxe Safaris
+            </h1>
 
+            <p className="text-sm sm:text-base lg:text-lg text-gray-200 max-w-xl leading-7 mb-6">
+              Discover unforgettable wildlife adventures, luxury safaris,
+              coastal escapes, and breathtaking tours across Kenya.
+            </p>
+
+            <div className="flex items-center gap-3">
+              <button className="bg-[#f4c84c] text-black font-semibold px-6 py-3 rounded-full hover:bg-[#e8ba34] transition">
+                Explore Tours
+              </button>
+              <button className="border border-white text-white px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
+                Book Now
+              </button>
+            </div>
+          </div>
+
+          {/* Hero Right Side */}
+          <div className="w-full">
+            <Slider {...settings}>
+              {tourismImages.map((img, index) => (
+                <div key={index} className="px-2">
+                  <div className="overflow-hidden rounded-2xl shadow-2xl">
+                    <img
+                      src={img}
+                      alt={`Kenya tourism ${index + 1}`}
+                      className="w-full h-[280px] sm:h-[360px] object-cover"
+                    />
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </div>
+      </div>
     </div>
-  )
-}
-export default Hero
+  );
+};
+
+export default Hero;

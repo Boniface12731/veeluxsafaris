@@ -8,6 +8,8 @@ import NewsletterBox from '../components/NewsletterBox';
 import { ShopContext } from '../context/ShopContext';
 import { toast } from 'react-toastify';
 
+import lionsHero from '../assets/lionsHero.png'
+
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -110,7 +112,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+  <div>
       {/* Main Components */}
       <Hero />
       <LatestCollections />
@@ -205,8 +207,7 @@ const Home = () => {
           </div>
         </div>
       )}
-    </div>
+    </div>    
   );
 };
-
 export default Home;
