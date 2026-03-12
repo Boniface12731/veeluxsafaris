@@ -13,14 +13,54 @@ import caravan from '../assets/caravan.png'
 import road from '../assets/road.png'
 import tree from '../assets/tree.png'
 
+import elephant from '../assets/elephant.png'
+import elephantgroup from '../assets/elephantgroup.png'
+import lion from '../assets/lion.png'
+import lioness from '../assets/lioness.png'
+import lionpride from '../assets/lionpride.png'
+import collage from '../assets/collage.png'
+import longonot from '../assets/longonot.png'
+import longonottwo from '../assets/longonottwo.png'
+import longonotthree from '../assets/longonotthree.png'
+import aberdareranges from '../assets/aberdareranges.png'
+import horizon from '../assets/horizon.png'
+import hellsgate from '../assets/hellsgate.png'
+import escarpments from '../assets/escarpments.png'
+import hellgate from '../assets/hellgate.png'
+import hellgateride from '../assets/hellgateride.png'
+import  mtkenyafar from '../assets/mtkenyafar.png'
+import mtkenyaclose from '../assets/mtkenyaclose.png'
+import waterfallone from '../assets/waterfallone.png'
+import waterfalltwo from '../assets/waterfalltwo.png'
+
 
 const Hero = () => {
   const tourismImages = [
-     beach,
-     maasaimara,
-     caravan,
-     road,
-     tree
+    aberdareranges,
+    lion,
+    waterfalltwo,
+    longonottwo,
+    beach,
+    elephant,
+    lioness,
+    maasaimara,
+    caravan,
+    hellsgate,
+    mtkenyaclose,
+    road,
+    tree,
+    lionpride,
+    hellgateride,
+    longonotthree,
+    diani,
+    elephantgroup,  
+    collage,
+    longonot,
+    horizon,
+    escarpments,
+    waterfallone,
+    hellgate,
+    mtkenyafar,
   ];
 
   const settings = {
