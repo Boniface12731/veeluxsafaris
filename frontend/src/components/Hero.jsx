@@ -3,8 +3,6 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-// Save your lions poster image in:
-// src/assets/lions-hero.jpg
 import lionsHero from '../assets/lionsHero.png';
 import diani from '../assets/diani.png'
 import beach from '../assets/beach.png'
@@ -64,7 +62,6 @@ const Hero = () => {
   ];
 
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,

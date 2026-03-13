@@ -124,17 +124,17 @@ const Add = ({token}) => {
         <div>
           <p className='mb-2'>Product Sizes</p>
           <div className='flex gap-3'>
-            <div onClick={()=>setSizes(prev => prev.includes("A1") ? prev.filter( item => item !== "A1") : [...prev,"A1"])}>
-              <p className={`${sizes.includes("A1") ? "bg-pink-100" : "bg-slate-200" } px-3 py-1 cursor-pointer`}>A1</p>
+            <div onClick={()=>setSizes(prev => prev.includes("Single") ? prev.filter( item => item !== "Single") : [...prev,"Single"])}>
+              <p className={`${sizes.includes("Single") ? "bg-pink-100" : "bg-slate-200" } px-3 py-1 cursor-pointer`}>Single</p>
             </div>
             
-            <div onClick={()=>setSizes(prev => prev.includes("A2") ? prev.filter( item => item !== "A2") : [...prev,"A2"])}>
-              <p className={`${sizes.includes("A2") ? "bg-pink-100" : "bg-slate-200" } px-3 py-1 cursor-pointer`}>A2</p>
+            <div onClick={()=>setSizes(prev => prev.includes("Group") ? prev.filter( item => item !== "Group") : [...prev,"Group"])}>
+              <p className={`${sizes.includes("Group") ? "bg-pink-100" : "bg-slate-200" } px-3 py-1 cursor-pointer`}>Group</p>
             </div>
 
-            <div onClick={()=>setSizes(prev => prev.includes("A3") ? prev.filter( item => item !== "A3") : [...prev,"A3"])}>
+            {/* <div onClick={()=>setSizes(prev => prev.includes("A3") ? prev.filter( item => item !== "A3") : [...prev,"A3"])}>
               <p className={`${sizes.includes("A3") ? "bg-pink-100" : "bg-slate-200" } px-3 py-1 cursor-pointer`}>A3</p>
-            </div>
+            </div> */}
 
           {/*   
             <div onClick={()=>setSizes(prev => prev.includes("XL") ? prev.filter( item => item !== "XL") : [...prev,"XL"])}>
