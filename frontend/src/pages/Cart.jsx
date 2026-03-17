@@ -34,7 +34,7 @@ const Cart = () => {
       <div className='border-t pt-14'>
           <div id="cart-content">
             <div className='text-2xl mb-3'>
-                <Title text1={'YOUR'} text2={'CART'}/>
+                <Title text1={'Booking'} text2={'Summary'}/>
             </div>
           {
           cartData.map((item, index) => {
@@ -66,7 +66,10 @@ const Cart = () => {
           </div>
 
           <div className='w-full text-end'>
-          <button onClick={placeOrder} className='bg-black text-white text-sm my-8 px-8 py-3'>PROCEED TO CHECKOUT</button>
+          <button onClick={placeOrder} 
+            className='bg-amber-500 text-white px-8 py-3 text-sm rounded-full hover:bg-amber-600 hover:shadow-xl hover:-translate-y-1 transition transform duration-300'
+            >
+            PROCEED TO CHECKOUT</button>
           </div>
       </div>
     )

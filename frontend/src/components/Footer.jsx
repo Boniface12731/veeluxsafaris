@@ -9,11 +9,13 @@ const Footer = () => {
 
 <div>
   <img className='mb-5 w-32' src={assets.logo} alt="" />
-  <p className='w-full md:w-2/3 text-gray-600'>Bringing art to life, one canvas at a time. Picture Mart transforms your space with stunning, high-quality prints designed to inspire and captivate</p>
+  <p className='w-full md:w-2/3 text-gray-600'>
+      Experience Kenya through unforgettable safaris, scenic landscapes, wildlife encounters, and premium travel planning
+  </p>
 </div>
 
 <div>
-  <p className='text-xl font-medium mb-5'>PICTURE MART</p>
+  <p className='text-xl font-medium mb-5'>VEELUXE SAFARIS</p>
   <ul className='flex flex-col gap-1 text-gray-600'>
     <li>Nairobi,</li>
     <li>Kenya</li>
@@ -23,8 +25,8 @@ const Footer = () => {
 <div>
   <p className='text-xl font-medium mb-5'>CONTACT US</p>
   <ul className='flex flex-col gap-1 text-gray-600'>
-    <li>+254-713486157</li>
-    <li>picturemart@gmail.com</li>
+    <li>+254 702 873131</li>
+    <li>veeluxesafaris@gmail.com</li>
   </ul>
 </div>
 
@@ -32,7 +34,7 @@ const Footer = () => {
 
 <div>
 <hr />
-<p className='py-5 text-sm text-center'>Copyright 2024@picturemart - All Right Reserved.</p>
+<p className='py-5 text-sm text-center'>Copyright 2026@veeluxesafaris - All Right Reserved.</p>
 </div>
 
     </div>

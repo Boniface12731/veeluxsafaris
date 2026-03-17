@@ -7,6 +7,8 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import html2pdf from 'html2pdf.js';  
 import Mpesa from '../mpesa/Mpesa'
+import veeluxelogo from '../assets/veeluxelogo.png'
+
   
 const PlaceOrder = () => {
     const [method, setMethod] = useState('cod');
@@ -24,7 +26,7 @@ const PlaceOrder = () => {
         phone: ''
     })
     
-    const totalAmount = getCartAmount() === 0 ? 0 : getCartAmount() + delivery_fee;
+    const totalAmount = getCartAmount() === 0 ? 0 : getCartAmount();
     const userPhone =  formData.phone;
     localStorage.setItem('userPhone', userPhone);
 
@@ -48,57 +50,84 @@ const PlaceOrder = () => {
     }
     },[cartItems,products])
 
-    const generatePDF = () => {
-        const element = document.getElementById("cart-content");
-        const options = {
-        margin: 1,
-        filename: 'cart-items.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 4 },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-        };
-        html2pdf()
-        .from(element)
-        .set(options)
-        .save();
-    };//end of functions from cart
 
     const makePDF = () => {
-        // Create a temporary container for PDF generation
-        const pdfContent = document.createElement('div');
-        pdfContent.style.padding = '20px';
-        pdfContent.style.fontFamily = 'Arial, sans-serif';
-    
-        // Add form data to the container
-        const formDetails = `
-        <p><strong>Picture Mart Order Details</strong></p>
-        <p><strong>Full Name:</strong> ${formData.firstName} ${formData.lastName}</p>    
+    const pdfContent = document.createElement('div');
+    pdfContent.style.padding = '30px';
+    pdfContent.style.fontFamily = 'Arial, sans-serif';
+    pdfContent.style.color = '#1f2937';
+    pdfContent.style.backgroundColor = '#ffffff';
+    const bookingItemsHTML = cartData.map((item) => {
+    const productData = products.find((product) => product._id === item._id);
+    if (!productData) return '';
+    return `
+        <tr>
+        <td style="padding: 10px; border: 1px solid #ddd;">${productData.name}</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">${item.size}</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">${item.quantity}</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">${currency}${productData.price}</td>
+        </tr>
+    `;
+    }).join('');
+
+    pdfContent.innerHTML = `
+    <div style="max-width: 800px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 25px;">
+        <img src="${veeluxelogo}" alt="Veelux Safaris Logo" style="width: 180px; margin-left: 240px; margin-bottom: 10px;" />
+        <h1 style="margin: 0; color: #8B5E3C;">Booking Summary</h1>
+        <p style="margin-top: 8px; color: #6b7280;">Veelux Safaris</p>
+        </div>
+
+        <div style="margin-bottom: 25px;">
+        <h2 style="color: #8B5E3C; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px;">Traveller Information</h2>
+        <p><strong>Full Name:</strong> ${formData.firstName} ${formData.lastName}</p>
         <p><strong>Email:</strong> ${formData.email}</p>
+        <p><strong>Phone:</strong> ${formData.phone}</p>
         <p><strong>Country:</strong> ${formData.country}</p>
         <p><strong>City:</strong> ${formData.city}</p>
-        <p><strong>Street:</strong> ${formData.street}</p>
-        <p><strong>Phone:</strong> ${formData.phone}</p>
-        `;
-        pdfContent.innerHTML += formDetails;
-    
-        // Add cart details to the container
-        const cartDetails = document.getElementById("cart-content").innerHTML;
-        pdfContent.innerHTML += `
-            <h2>Cart Details</h2>
-            <br/> 
-            ${cartDetails}
-        `;
-    
-        // Convert the combined content to a PDF
-        const options = {
-            margin: 1,
-            filename: 'order-summary.pdf',
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 4 },
-            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-        };
-        html2pdf().from(pdfContent).set(options).save();
+        <p><strong>Estate:</strong> ${formData.street}</p>
+        </div>
+
+        <div style="margin-bottom: 25px;">
+        <h2 style="color: #8B5E3C; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px;">Booking Details</h2>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+            <thead>
+            <tr style="background-color: #f3f4f6;">
+                <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Tour</th>
+                <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Package</th>
+                <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Travellers</th>
+                <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            ${bookingItemsHTML}
+            </tbody>
+        </table>
+        </div>
+
+        <div style="margin-top: 25px; padding: 18px; background: #f9fafb; border-radius: 10px;">
+        <p style="margin: 0 0 8px 0;"><strong>Subtotal:</strong> ${currency}${getCartAmount()}</p>
+        <p style="margin: 0 0 8px 0;"><strong>Total:</strong> ${currency}${totalAmount}</p>
+        <p style="margin: 0;"><strong>Payment Method:</strong> M-Pesa</p>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 14px; color: #6b7280; text-align: center;">
+        <p>Thank you for booking with Veelux Safaris.</p>
+        <p>Please keep this document for your records.</p>
+        </div>
+    </div>
+    `;
+
+    const options = {
+        margin: 0.5,
+        filename: `veelux-booking-summary-${formData.firstName || 'guest'}.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
     };
+    html2pdf().from(pdfContent).set(options).save();
+    };
+
 
     const onChangeHandler = (event) => {
         const name = event.target.name
@@ -140,7 +169,8 @@ const PlaceOrder = () => {
         }
      };
 
-    const onSubmitHandler = async (event) => {    
+    const onSubmitHandler = async (event) => {  
+        makePDF();  
         event.preventDefault()
         try {
             let orderItems = []
@@ -159,7 +189,7 @@ const PlaceOrder = () => {
             let orderData = {
                 address: formData,
                 items: orderItems,
-                amount: getCartAmount() + delivery_fee
+                amount: getCartAmount()
             }        
             switch (method) {
                 // API Calls for Cash On Delivery
@@ -188,7 +218,6 @@ const PlaceOrder = () => {
         sendEmail();
     }
 
-
     const payHandler = () => {
         axios.post(
             backendUrl + '/api/mpesa/pay', 
@@ -205,9 +234,21 @@ const PlaceOrder = () => {
         });
     };
       
-    const finishOrder = () => {
-    payHandler(); 
-    }
+   const handlePaymentWithPDF = () => {
+  if (
+    !formData.firstName ||
+    !formData.lastName ||
+    !formData.email ||
+    !formData.country ||
+    !formData.city ||
+    !formData.street ||
+    !formData.phone
+  ) {
+    toast.error('Please fill in all traveller information first');
+    return;
+  }
+  makePDF();
+};
 
     return (
     <>
@@ -245,7 +286,7 @@ const PlaceOrder = () => {
             <div className='flex flex-col gap-4 w-full sm:max-w-[480px]'>
 
             <div className='text-xl sm:text-2xl my-3'>
-                <Title text1={'DELIVERY'} text2={'INFORMATION'} />
+                <Title text1={'TRAVELLER'} text2={'INFORMATION'} />
             </div>
             <div className='flex gap-3'>
                 <input required onChange={onChangeHandler} name='firstName' value={formData.firstName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='First name' />
@@ -273,9 +314,14 @@ const PlaceOrder = () => {
             {/* ------------- Right Side ------------------ */}
             <div className='mt-8'>
                 <div className='mt-12'>
-                    <Title text1={'Lipa Na'} text2={'Mpesa'}/>
+                    <Title text1={'Payment'} text2={'Method'}/>
+                        <div className='text-sm text-gray-500 mt-6 flex flex-col gap-2'>
+                            <p>✔ Secure M-Pesa payment</p>
+                            <p>✔ Local team support available</p>
+                            <p>✔ Booking confirmation sent by email</p>
+                        </div>
 
-                    <input required onChange={onChangeHandler} name='phone' value={formData.phone} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="number" placeholder='Enter Mpesa Number'/>
+                    <input required onChange={onChangeHandler} name='phone' value={formData.phone} className='border border-gray-300 rounded py-1.5 px-3.5 w-full mt-4' type="number" placeholder='Enter Mpesa Number'/>
                     {/* --------------- Payment Method Selection ------------- */}
                     <div className='flex gap-3 flex-col lg:flex-row mt-6'>   
                         <div onClick={() => setMethod('cod')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
@@ -285,20 +331,19 @@ const PlaceOrder = () => {
                     </div>   
 
                 <div className='flex justify-start my-20 w-full sm:w-[450px]'>
-                    <Mpesa/>
+                    <Mpesa onPay={handlePaymentWithPDF}/>
                 </div>
                     
                 <p>Check for the payment promt on your mobile device and enter your mpesa pin</p>
 
-                    <div className='w-full text-end mt-8 flex justify-start'>
-                        
-                    <button
-                    type="submit"
-                    disabled={!paymentStatus}
-                    className={`bg-green-500 rounded-full text-white px-16 py-3 text-sm hover:bg-green-600 transition-all ${
-                        !paymentStatus ? 'opacity-50 cursor-not-allowed' : ''
-                    }`}> PLACE ORDER
-                </button>
+                <div className='w-full text-end mt-8 flex justify-start'>   
+                <button
+                type="submit"
+                disabled={!paymentStatus}
+                className={`bg-green-500 rounded-full text-white px-16 py-3 text-sm hover:bg-green-600 transition-all ${
+                    !paymentStatus ? 'opacity-50 cursor-not-allowed' : ''
+                }`}> Complete Booking
+            </button>
                     
                     </div>
                 </div>

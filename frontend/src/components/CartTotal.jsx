@@ -17,29 +17,28 @@ const CartTotal = () => {
   ];
 
   const subtotal = getCartAmount();
-  const total = subtotal === 0 ? 0 : subtotal + delivery_fee;
+  const total = subtotal === 0 ? 0 : subtotal;
 
   return (
     <div className='w-full'>
       <div className='text-2xl'>
-        <Title text1={'CART'} text2={'TOTALS'} />
+        <Title text1={'Booking'} text2={'Totals'} />
       </div>
 
       {/* Dropdown for selecting county */}
-      <div className="mt-3">
+      {/* <div className="mt-3">
         <label className="block text-sm font-medium text-gray-700">Select County:</label>
         <select
           className="mt-1 p-2 border rounded w-full"
           value={selectedCounty}
-          onChange={(e) => setSelectedCounty(e.target.value)}
-        >
+          onChange={(e) => setSelectedCounty(e.target.value)}>
           {counties.map((county) => (
             <option key={county} value={county}>
               {county} {county === "Nairobi" ? "(Free Delivery)" : ""}
             </option>
           ))}
         </select>
-      </div>
+      </div> */}
 
       <div className='flex flex-col gap-2 mt-2 text-sm'>
         <div className='flex justify-between'>
@@ -47,11 +46,11 @@ const CartTotal = () => {
           <p>{currency} {subtotal.toFixed(2)}</p>
         </div>
 
-        <hr />
+        {/* <hr />
         <div className='flex justify-between'>
           <p>Shipping Fee</p>
           <p>{currency} {delivery_fee.toFixed(2)}</p>
-        </div>
+        </div> */}
 
         <hr />
         <div className='flex justify-between'>

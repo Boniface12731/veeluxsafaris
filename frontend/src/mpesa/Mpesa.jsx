@@ -3,7 +3,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import { ShopContext } from '../context/ShopContext'
 
-const Mpesa = () => {
+const Mpesa = ({onPay}) => {
     const [loading, setLoading] = useState(false); 
     const [formData, setFormData] = useState({
         phone: ''
@@ -12,7 +12,7 @@ const Mpesa = () => {
     const  amount = getCartAmount() === 0 ? 0 : getCartAmount() + delivery_fee;
     const phone = localStorage.getItem('userPhone');  
     
-    const payHandler = () => {
+    const payHandler = async () => {
         setLoading(true);
         axios.post('https://pm-backend-kappa.vercel.app/api/mpesa/pay', 
             { amount, phone},
@@ -30,6 +30,10 @@ const Mpesa = () => {
             toast.error('Payment failed, check mobile number');
             setLoading(false); 
         });
+
+         if (onPay) {
+        onPay();
+      }
     };
 
   return (
@@ -39,7 +43,10 @@ const Mpesa = () => {
           <div className="w-12 h-12 border-4 border-green-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
       )}
-      <button onClick={payHandler}  disabled={loading} className={`bg-green-500 rounded-full text-white px-16 py-3 text-sm  hover:bg-green-600 transition-all ${loading ? 'opacity-50 cursor-not-allowed' : '' }`}>{loading ? 'Processing...' : 'Make Payment'}</button>
+
+      <button onClick={payHandler}  
+        disabled={loading} 
+        className={`bg-green-500 rounded-full text-white px-16 py-3 text-sm  hover:bg-green-600 transition-all ${loading ? 'opacity-50 cursor-not-allowed' : '' }`}>{loading ? 'Processing...' : 'Make Payment'}</button>
     </div>
   )
 }
