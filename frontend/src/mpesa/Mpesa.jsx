@@ -13,6 +13,9 @@ const Mpesa = ({onPay}) => {
     const phone = localStorage.getItem('userPhone');  
     
     const payHandler = async () => {
+       if (onPay) {
+        onPay();
+      }
         setLoading(true);
         axios.post('https://pm-backend-kappa.vercel.app/api/mpesa/pay', 
             { amount, phone},
@@ -30,10 +33,6 @@ const Mpesa = ({onPay}) => {
             toast.error('Payment failed, check mobile number');
             setLoading(false); 
         });
-
-         if (onPay) {
-        onPay();
-      }
     };
 
   return (
