@@ -7,7 +7,7 @@ export const ShopContext = createContext();
 const ShopContextProvider = (props) => {
     const currency = 'Ksh.';
     const defaultDeliveryFee = 300; 
-    const backendUrl =  "https://pm-backend-kappa.vercel.app"
+    const backendUrl = "https://veeluxsafarisbackend.vercel.app";  //"http://localhost:4000";
     const [search, setSearch] = useState('');
     const [showSearch, setShowSearch] = useState(false);
     const [cartItems, setCartItems] = useState({});

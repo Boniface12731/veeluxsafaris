@@ -11,7 +11,7 @@ import Submissions from './pages/Submissions'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const backendUrl = "https://pm-backend-kappa.vercel.app"
+export const backendUrl = "https://veeluxsafarisbackend.vercel.app";    //"http://localhost:4000";  
 export const currency = 'Ksh.'
 
 const App = () => {

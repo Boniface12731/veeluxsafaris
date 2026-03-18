@@ -137,9 +137,9 @@ const PlaceOrder = () => {
 
     const [emailData, setEmailData] = useState({
         to: 'bonyosuks12731@gmail.com',
-        subject: 'Picture Mart - Order Received',
-        text: 'Congratulations, we have successfully received  your payment,  your order will be processed and  delivered to your within 2-3 business days',
-     });
+        subject: 'Veelux Safaris - Booking Confirmation',
+        text: 'Congratulations, we have successfully received your payment'
+    });
 
      const sendEmail = async ()=> {
         const emailToSend = [formData.email, emailData.to];
@@ -170,7 +170,7 @@ const PlaceOrder = () => {
      };
 
     const onSubmitHandler = async (event) => {  
-        makePDF();  
+        //makePDF();  
         event.preventDefault()
         try {
             let orderItems = []
@@ -244,7 +244,7 @@ const PlaceOrder = () => {
     !formData.street ||
     !formData.phone
   ) {
-    toast.error('Please fill in all traveller information first');
+    toast.error('Please fill in all the details first');
     return;
   }
   makePDF();
@@ -343,13 +343,12 @@ const PlaceOrder = () => {
                 className={`bg-green-500 rounded-full text-white px-16 py-3 text-sm hover:bg-green-600 transition-all ${
                     !paymentStatus ? 'opacity-50 cursor-not-allowed' : ''
                 }`}> Complete Booking
-            </button>
+                </button>
                     
                     </div>
                 </div>
             </div>
         </form> 
-       
     </>   
    )
 }
