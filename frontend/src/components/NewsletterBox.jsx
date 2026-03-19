@@ -41,9 +41,9 @@ const NewsletterBox = () => {
     }
 
   return (
-    <div className='text-center'>
-      <p className='text-2xl font-medium text-gray-800'>Subscribe to  our  Newsletter</p>
-      <p className='text-gray-400 mt-3'>Bringing art to life, one canvas at a time.</p>
+    <div className='bg-gradient-to-r from-amber-200 via-amber-300 to-amber-200 text-center'>
+      <p className='text-2xl font-medium text-black-800'>Get Travel Deals & Safari Offers</p>
+      <p className='text-black-400 mt-3'>Explore Kenyas most breathtaking destinations</p>
       <div  className='w-full sm:w-1/2 flex items-center gap-3 mx-auto my-6 border pl-3'>
       </div>
 

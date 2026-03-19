@@ -14,8 +14,10 @@ const LatestCollections = () => {
   return (
     <div className='my-10'>
         <div className='text-center py-8 text-3xl'>
-        <Title text1={'LATEST'} text2={'COLLECTION'}/>
-        <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>Bringing art to life, one canvas at a time.Transform your space with stunning, high-quality prints designed to inspire and captivate."</p>
+        <Title text1={'TOP'} text2={'DESTINATIONS latestcollection'}/>
+        <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>
+          Explore Kenyas most breathtaking destinations, from wildlife safaris to coastal escapes.
+        </p>
     </div>
 
      {/* Rendering Products */}

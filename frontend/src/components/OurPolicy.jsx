@@ -3,25 +3,21 @@ import { assets } from '../assets/assets'
 
 const OurPolicy = () => {
   return (
-    <div className='flex flex-col sm:flex-row justify-around gap-12 sm:gap-2 text-center py-20 text-xs sm:text-sm md:text-base text-gray-700'>
+<div className='bg-gradient-to-r from-amber-200 via-amber-300 to-amber-200 flex flex-col sm:flex-row justify-around gap-12 sm:gap-6 text-center py-20 text-sm md:text-base text-black-800'>
+       <div>
+        <p className='font-semibold text-lg mb-2'>Experienced Guides</p>
+        <p className='text-black-500'>Travel with knowledgeable local guides who ensure a safe and unforgettable safari experience.</p>
+      </div>
 
-    <div>
-      <img className='w-12 m-auto mb-5' src={assets.exchange_icon} alt="" />
-      <p className='font-semibold'>Shipping and Delivery Policy</p>
-      <p className='text-gray-400'>We offer countrywide delivery across Kenya within 2-3 business days</p>
-    </div>
+      <div>
+        <p className='font-semibold text-lg mb-2'>Tailored Experiences</p>
+        <p className='text-black-500'>Choose from a variety of tours or customize your journey to match your adventure style.</p>
+      </div>
 
-    <div>
-      <img className='w-12 m-auto mb-5' src={assets.support_img} alt="" />
-      <p className='font-semibold'>Best customer support</p>
-      <p className='text-gray-400'>we provide 24/7 customer support for shipments</p>
-    </div>
-
-    <div>
-      <img className='w-12 m-auto mb-5' src={assets.quality_icon} alt="" />
-      <p className='font-semibold'>Privacy Policy</p>
-      <p className='text-gray-400'>Personal information will  only be used  to process your orders.</p>
-    </div>
+      <div>
+        <p className='font-semibold text-lg mb-2'>Secure Payments</p>
+        <p className='text-black-500'>Enjoy seamless and secure payments with M-Pesa for all your bookings.</p>
+      </div>
    
   </div>
   )
