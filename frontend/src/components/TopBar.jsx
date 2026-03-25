@@ -25,24 +25,24 @@ const  logout = () => {
                   </NavLink>
 
                   <NavLink to='/collection' className='flex flex-col items-center gap-1'>
-                      <p>COLLECTION</p>
+                      <p>DESTINATIONS</p>
                       <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
                   </NavLink>
 
                   <NavLink to='/orders' className='flex flex-col items-center gap-1'>
-                      <p>MY ORDERS</p>
+                      <p>MY BOOKINGS</p>
                       <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
                   </NavLink>
 
                   <NavLink to='/about' className='flex flex-col items-center gap-1'>
-                      <p>ABOUT</p>
+                      <p>ABOUT US</p>
                       <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
                   </NavLink>
 
-                  <NavLink to='/contact' className='flex flex-col items-center gap-1'>
+                  {/* <NavLink to='/contact' className='flex flex-col items-center gap-1'>
                       <p>CONTACT</p>
                       <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
-                  </NavLink>    
+                  </NavLink>     */}
           </ul>     
 
           <div className='flex items-center gap-6'>
