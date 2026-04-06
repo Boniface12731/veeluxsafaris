@@ -82,21 +82,21 @@ const Collection = () => {
       <div className={`border border-gray-300 pl-5 py-3 mt-6 ${showFilter ? '' : 'hidden'} sm:block`}>
         <p className='mb-3 text-sm font-medium'>CATEGORIES</p>
         <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
-          <p className='flex gap-2'><input className='w-3' value={"Nature"} onChange={toggleCategory} type="checkbox" />Nature </p>
-          <p className='flex gap-2'><input className='w-3' value={"Words"} onChange={toggleCategory} type="checkbox" />Words </p>
-          <p className='flex gap-2'><input className='w-3' value={"People"} onChange={toggleCategory} type="checkbox" />People </p>
+          <p className='flex gap-2'><input className='w-3' value={"Safari"} onChange={toggleCategory} type="checkbox" />Safari </p>
+          <p className='flex gap-2'><input className='w-3' value={"Beach"} onChange={toggleCategory} type="checkbox" />Beach </p>
+          <p className='flex gap-2'><input className='w-3' value={"Hiking"} onChange={toggleCategory} type="checkbox" />Hiking </p>
         </div>
       </div>
 
       {/*-----Sub Category Filter----*/}
-      <div className={`border border-gray-300 pl-5 py-3 my-5 ${showFilter ? '' : 'hidden'} sm:block`}>
+      {/* <div className={`border border-gray-300 pl-5 py-3 my-5 ${showFilter ? '' : 'hidden'} sm:block`}>
         <p className='mb-3 text-sm font-medium'>TYPE</p>
         <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
           <p className='flex gap-2'><input className='w-3' value={"Scenes"} onChange={toggleSubCategory} type="checkbox" />Scenes </p>
           <p className='flex gap-2'><input className='w-3' value={"Inspirational"} onChange={toggleSubCategory} type="checkbox" />Inspirational </p>
           <p className='flex gap-2'><input className='w-3' value={"Lifestyle"} onChange={toggleSubCategory} type="checkbox" />Lifestyle</p>
         </div>
-      </div>
+      </div> */}
       
     </div>
 

@@ -52,7 +52,7 @@ const Product = () => {
         {/* Tour Info */}
         <div className='flex-1'>
           <p className='text-amber-700 uppercase tracking-wide text-sm font-semibold'>
-            Luxury Safari Experience
+            Best Safari Experience
           </p>
 
           <h1 className='font-semibold text-3xl mt-2 text-gray-900'>
@@ -78,9 +78,9 @@ const Product = () => {
           </p>
 
           <div className='mt-6 flex flex-wrap gap-3'>
-              <span className='bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm'>
+              {/* <span className='bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm'>
               Big Five Safari
-              </span>
+              </span> */}
               <span className='bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm'>
               Professional Guides
               </span>
@@ -95,9 +95,9 @@ const Product = () => {
 
           {/* Highlights */}
           <div className='mt-6 flex flex-wrap gap-3'>
-            <span className='bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm'>
+            {/* <span className='bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm'>
               Wildlife Safari
-            </span>
+            </span> */}
             <span className='bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm'>
               Guided Tour
             </span>
