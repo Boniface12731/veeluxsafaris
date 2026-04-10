@@ -3,26 +3,26 @@ import Title from '../components/Title'
 import { assets } from '../assets/assets'
 import NewsletterBox from '../components/NewsletterBox'
 
+
 const Contact = () => {
   return (
     <div>
 
       <div className='text-center text-2xl pt-10 border-t'>
-        <Title text1={'CONTACT'} text2={'US'} />
+        <Title text1={'CONTACT'} text2={'US'}/>
       </div>
 
       <div className='my-10 flex flex-col justify-center md:flex-row gap-10 mb-28'>
-        <img className='w-full md:max-w-[480px]' src={assets.hero_img} alt="" />
+        {/* <img className='w-full md:max-w-[480px]' src={assets.veeluxelogo} alt="" /> */}
         <div className='flex flex-col justify-center items-start gap-6'>
-          <p className=' font-semibold text-xl text-gray-600'>Our Store</p>
-          <p className=' text-gray-500'>Hospital Road<br />Opposite Britam  Towers, Upperhill</p>
-          <p className=' text-gray-500'>Tel: (+254) 71348-6157 <br/> Email: picturemart@gmail.com</p>
+          {/* <p className=' font-semibold text-xl text-gray-600'>Our Store</p> */}
+          {/* <p className=' text-gray-500'>Hospital Road<br />Opposite Britam  Towers, Upperhill</p> */}
+          <p className=' text-gray-500'>Tel: (+254) 70287-3131 <br/>Email: veeluxesafaris@gmail.com</p>
         
         </div>
       </div>
 
       <NewsletterBox />
-
     </div>
   )
 }

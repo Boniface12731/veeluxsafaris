@@ -128,8 +128,7 @@ const Product = () => {
 
           <button
             onClick={() => addToCart(productData._id, size)}
-            className='bg-amber-500 text-white px-8 py-3 text-sm rounded-full hover:bg-amber-600 hover:shadow-xl hover:-translate-y-1 transition transform duration-300'
->
+            className='bg-amber-500 text-white px-8 py-3 text-sm rounded-full hover:bg-amber-600 hover:shadow-xl hover:-translate-y-1 transition transform duration-300'>
             Book Tour
           </button>
 
