@@ -16,7 +16,7 @@ const BestSeller = () => {
     return (
         <div className='my-10'>
                 <div className='text-center text-3xl py-8'>
-                    <Title text1={"POPULAR"} text2={"PACKAGES - bestseller"} />
+                    <Title text1={"POPULAR"} text2={"PACKAGES"} />
                     {/* <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>Explore our bestselling collection! These stunning prints have captivated our customers, making them top choices for adding beauty and character to any space.</p> */}
                 </div>
 

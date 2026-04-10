@@ -115,7 +115,7 @@ const Home = () => {
   <div>
       {/* Main Components */}
       <Hero />
-      <LatestCollections />
+      {/* <LatestCollections /> */}
       <BestSeller />
       <OurPolicy />
       <NewsletterBox />

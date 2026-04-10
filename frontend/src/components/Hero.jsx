@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext, useState } from 'react'
+import { ShopContext } from '../context/ShopContext'
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -10,7 +11,6 @@ import maasaimara from '../assets/maasaimara.png'
 import caravan from '../assets/caravan.png'
 import road from '../assets/road.png'
 import tree from '../assets/tree.png'
-
 import elephant from '../assets/elephant.png'
 import elephantgroup from '../assets/elephantgroup.png'
 import lion from '../assets/lion.png'
@@ -31,9 +31,11 @@ import mtkenyaclose from '../assets/mtkenyaclose.png'
 import waterfallone from '../assets/waterfallone.png'
 import waterfalltwo from '../assets/waterfalltwo.png'
 
-
 const Hero = () => {
+      const {navigate} = useContext(ShopContext);
+  
   const tourismImages = [
+    lionsHero,
     aberdareranges,
     lion,
     waterfalltwo,
@@ -105,10 +107,19 @@ const Hero = () => {
             </p>
 
             <div className="flex items-center gap-3">
-              <button className="bg-[#f4c84c] text-black font-semibold px-6 py-3 rounded-full hover:bg-[#e8ba34] transition">
+              <button 
+                      onClick={()=> navigate('/collection')} 
+                      className="bg-[#f4c84c] text-black font-semibold px-6 py-3 rounded-full hover:bg-[#e8ba34] transition">
                 Explore Tours
               </button>
-              <button className="border border-white text-white px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
+
+              <button 
+                onClick={() => {window.scrollBy({
+                  top: 600,
+                  behavior: "smooth",
+                  });
+                }}
+                  className="border border-white text-white px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
                 Book Now
               </button>
             </div>

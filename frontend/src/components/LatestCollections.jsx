@@ -14,7 +14,7 @@ const LatestCollections = () => {
   return (
     <div className='my-10'>
         <div className='text-center py-8 text-3xl'>
-        <Title text1={'TOP'} text2={'DESTINATIONS latestcollection'}/>
+        <Title text1={'TOP'} text2={'DESTINATIONS'}/>
         <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>
           Explore Kenyas most breathtaking destinations, from wildlife safaris to coastal escapes.
         </p>

@@ -14,7 +14,7 @@ const Add = ({token}) => {
    const [name, setName] = useState("");
    const [description, setDescription] = useState("");
    const [price, setPrice] = useState("");
-   const [category, setCategory] = useState("Nature");
+   const [category, setCategory] = useState("Safari");
    const [subCategory, setSubCategory] = useState("Scenes");
    const [bestseller, setBestseller] = useState(false);
    const [sizes, setSizes] = useState([]);
@@ -122,7 +122,7 @@ const Add = ({token}) => {
         </div>
 
         <div>
-          <p className='mb-2'>Destination Package</p>
+          <p className='mb-2'>Package Type</p>
           <div className='flex gap-3'>
             <div onClick={()=>setSizes(prev => prev.includes("Single") ? prev.filter( item => item !== "Single") : [...prev,"Single"])}>
               <p className={`${sizes.includes("Single") ? "bg-pink-100" : "bg-slate-200" } px-3 py-1 cursor-pointer`}>Single</p>
@@ -151,7 +151,7 @@ const Add = ({token}) => {
 
         <div className='flex gap-2 mt-2'>
           <input onChange={() => setBestseller(prev => !prev)} checked={bestseller} type="checkbox" id='bestseller' />
-          <label className='cursor-pointer' htmlFor="bestseller">Add to bestseller</label>
+          <label className='cursor-pointer' htmlFor="bestseller">Add to Popular packages</label>
         </div>
 
         <button  type="submit" className='w-28 py-3 mt-4 bg-black text-white'>ADD</button>
