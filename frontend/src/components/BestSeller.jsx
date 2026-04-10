@@ -27,7 +27,6 @@ const BestSeller = () => {
                     ))
                 }
             </div>
-
         </div>
     )
 }

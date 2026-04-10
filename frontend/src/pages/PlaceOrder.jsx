@@ -50,7 +50,6 @@ const PlaceOrder = () => {
     }
     },[cartItems,products])
 
-
     const makePDF = () => {
     const pdfContent = document.createElement('div');
     pdfContent.style.padding = '30px';
@@ -128,7 +127,6 @@ const PlaceOrder = () => {
     html2pdf().from(pdfContent).set(options).save();
     };
 
-
     const onChangeHandler = (event) => {
         const name = event.target.name
         const value = event.target.value
@@ -138,7 +136,7 @@ const PlaceOrder = () => {
     const [emailData, setEmailData] = useState({
         to: 'bonyosuks12731@gmail.com',
         subject: 'Veelux Safaris - Booking Confirmation',
-        text: 'Congratulations, we have successfully received your payment'
+        text: 'Payment Received Successfully'
     });
 
      const sendEmail = async ()=> {
@@ -158,9 +156,9 @@ const PlaceOrder = () => {
           });
           const data  = await response.json();
           if(response.ok){
-            toast.success('Order received successfully');
+            toast.success('Booking reserved successfully');
           }else{
-             toast.error('Order Email Failed');
+             toast.error('Booking Email Failed');
           }
         } 
         catch (error) {
@@ -207,7 +205,7 @@ const PlaceOrder = () => {
                         toast.error(response.data.message)
                     }
                     break;
-                   default:
+                default:
                     break;
             }
         } 
@@ -286,7 +284,7 @@ const PlaceOrder = () => {
             <div className='flex flex-col gap-4 w-full sm:max-w-[480px]'>
 
             <div className='text-xl sm:text-2xl my-3'>
-                <Title text1={'TRAVELLER'} text2={'INFORMATION'} />
+                <Title text1={'BOOKING'} text2={'DETAILS'} />
             </div>
             <div className='flex gap-3'>
                 <input required onChange={onChangeHandler} name='firstName' value={formData.firstName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='First name' />

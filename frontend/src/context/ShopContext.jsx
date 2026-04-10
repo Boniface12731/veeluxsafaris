@@ -21,11 +21,11 @@ const ShopContextProvider = (props) => {
 
     const addToCart = async (itemId, size) => {
         if (!size){
-            toast.error('Select product size');
+            toast.error('Choose Tour Option');
             return;
             }
             else{
-                toast.success('Picture added to cart');
+                toast.success('Booking Reserved');
             }
         let cartData = structuredClone(cartItems);
         if (cartData[itemId]) {
@@ -67,6 +67,7 @@ const ShopContextProvider = (props) => {
         }
         return totalCount;
     }
+    
     const updateQuantity = async (itemId, size, quantity) => {
         let cartData = structuredClone(cartItems);
         cartData[itemId][size] = quantity;
