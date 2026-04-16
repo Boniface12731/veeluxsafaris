@@ -117,8 +117,7 @@ const ShopContextProvider = (props) => {
 
     const getProductsData = async () => {
         try {
-            // const response = await axios.get(backendUrl + '/api/product/list', {headers:{token}})
-            const response = await axios.get(backendUrl + '/api/safaris/list', {headers:{token}})
+            const response = await axios.get(backendUrl + '/api/product/list', {headers:{token}})
             console.log(response)
             if (response.data.success) {
                 setProducts(response.data.products.reverse())
