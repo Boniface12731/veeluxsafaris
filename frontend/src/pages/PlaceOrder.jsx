@@ -340,7 +340,7 @@ const PlaceOrder = () => {
                 disabled={!paymentStatus}
                 className={`bg-green-500 rounded-full text-white px-16 py-3 text-sm hover:bg-green-600 transition-all ${
                     !paymentStatus ? 'opacity-50 cursor-not-allowed' : ''
-                }`}> Complete Booking
+                }`}> Reserve Your Safari
                 </button>
                     
                     </div>

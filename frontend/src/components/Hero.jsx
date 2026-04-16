@@ -115,7 +115,7 @@ const Hero = () => {
 
               <button 
                 onClick={() => {window.scrollBy({
-                  top: 650,
+                  top: 620,
                   behavior: "smooth",
                   });
                 }}
