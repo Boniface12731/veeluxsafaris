@@ -20,7 +20,7 @@ const addToCart = async (req, res)=> {
             cartData[itemId][size] = 1
         }
         await userModel.findByIdAndUpdate(userId, {cartData})
-        response.json({success: true, message: "Added to Cart"})
+        response.json({success: true, message: "Booking Reserved to cart"})
 
     } catch (error) {
         console.log({success: false, message:error.message});
@@ -37,7 +37,7 @@ const updateCart = async (req, res)=> {
         let cartData = await userData.cartData;
         cartData[itemId][size] = quantity
         await userModel.findByIdAndUpdate(userId, {cartData})
-        res.json({ success: true, message: "Cart Updated" })
+        res.json({ success: true, message: "Reserve Updated" })
     } catch (error) {
         console.log(error)
         res.json({ success: false, message: error.message })

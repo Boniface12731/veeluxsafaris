@@ -18,7 +18,7 @@ const placeOrder = async (req,res) => {
         const newOrder = new orderModel(orderData)
         await newOrder.save()
         await userModel.findByIdAndUpdate(userId,{cartData:{}})
-        res.json({success:true,message:"Order Placed"})
+        res.json({success:true,message:"Booking Reserved"})
     } catch (error) {
         console.log(error)
         res.json({success:false,message:error.message})
@@ -66,7 +66,7 @@ const updateStatus = async(req, res) => {
     try {
         const { orderId, status } = req.body
         await orderModel.findByIdAndUpdate(orderId, { status })
-        res.json({success:true,message:'Status Updated'})
+        res.json({success:true,message:'Booking Status Updated'})
 
     } catch (error) {
         console.log(error)
