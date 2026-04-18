@@ -213,7 +213,7 @@ const PlaceOrder = () => {
             console.log(error)
             toast.error(error.message)
         } 
-        sendEmail();
+        //sendEmail();
     }
 
     const payHandler = () => {

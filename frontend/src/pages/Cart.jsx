@@ -70,7 +70,7 @@ const Cart = () => {
           <button onClick={placeOrder} 
             className='bg-amber-500 text-white px-8 py-3 text-sm rounded-full hover:bg-amber-600 hover:shadow-xl hover:-translate-y-1 transition transform duration-300'
             >
-            PROCEED TO CHECKOUT</button>
+            COMPLETE BOOKING</button>
           </div>
       </div>
     )
