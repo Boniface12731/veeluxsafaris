@@ -3,6 +3,7 @@ import { assets } from '../assets/assets'
 
 const Footer = () => {
   const [showFeedbackModal, setShowFeedbackModal] = useState(false)
+  const [showEmergencyModal, setShowEmergencyModal] = useState(false)
 
   return (
 <div>
@@ -31,7 +32,7 @@ const Footer = () => {
       </div>
   </div>
 
-  <div className='flex flex-col sm:grid grid-cols-4 gap-14 my-10 mt-20 text-sm'>
+    <div className='flex flex-col sm:grid grid-cols-4 gap-14 my-10 mt-20 text-sm'>
       <a className="block text-xl" 
         href="/documents/terms-and-conditions.pdf"
         target="_blank"
@@ -56,11 +57,18 @@ const Footer = () => {
         rel="noopener noreferrer">Cancellation Policy
       </a>
 
+      <a className="block text-xl"
+        href="/documents/emergency-contact.pdf"
+        target="_blank"
+        rel="noopener noreferrer">Emergency Contact
+      </a>
+
       <button
           onClick={() => setShowFeedbackModal(true)}
           className="block text-xl text-left">
           Customer Feedback
       </button>
+
     </div>
 
     <div>
@@ -174,7 +182,7 @@ const Footer = () => {
           placeholder="Additional Comments"
           className="w-full border p-3 rounded"/>
 
-        <button
+         <button
           type="submit"
           className="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700">
           Submit Feedback
@@ -182,9 +190,8 @@ const Footer = () => {
       </form>
     </div>
   </div>
-  )}
+    )}
    {/*Modal for Customer Feedback*/}
-
 
   </div>
   )
