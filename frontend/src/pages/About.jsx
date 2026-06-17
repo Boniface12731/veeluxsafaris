@@ -19,14 +19,24 @@ const About = () => {
             At Veeluxe Safaris, we create unforgettable travel experiences across Kenya by connecting travelers with breathtaking destinations, wildlife adventures, coastal escapes, and scenic outdoor tours. From the iconic Maasai Mara to the beautiful beaches of Diani, our goal is to help our guests discover the beauty, diversity, and excitement that Kenya has to offer.
           </p>
 
-          <p>
+          {/* <p>
             We are passionate about making travel planning simple, secure, and enjoyable. Whether you are looking for a luxury safari, a day trip to Hell’s Gate, a hiking adventure on Mount Longonot, or a relaxing coastal getaway, we provide curated tour options designed to suit different travel styles and budgets. With convenient booking and reliable customer support, Veeluxe Safaris is committed to giving every traveler a smooth and memorable journey.
-          </p>
+          </p> */}
 
           <b className='text-gray-800'>Our Mission</b>
           <p>
             Our mission is to provide authentic, seamless, and inspiring safari and travel experiences that showcase the natural beauty, adventure, and hospitality of Kenya.
           </p>
+
+           <b className='text-gray-800'>Our Vision</b>
+          <p>
+            To be Kenya's most trusted safari and travel brand, creating unforgettable journeys that connect travelers with Africa's beauty, culture, and wildlife.
+           </p>
+
+            <b className='text-gray-800'>Core Values</b>
+            <p>
+              Integrity, Excellence, Customer Focus, Professionalism, Authenticity, Sustainability, Safety, Innovation, Respect, and Community Empowerment.
+           </p>
         </div>
       </div>
 

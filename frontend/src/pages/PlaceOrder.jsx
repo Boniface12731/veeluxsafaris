@@ -213,7 +213,6 @@ const PlaceOrder = () => {
             console.log(error)
             toast.error(error.message)
         } 
-        //sendEmail();
     }
 
     const payHandler = () => {
@@ -233,20 +232,8 @@ const PlaceOrder = () => {
     };
       
    const handlePaymentWithPDF = () => {
-//   if (
-//     !formData.firstName ||
-//     !formData.lastName ||
-//     !formData.email ||
-//     !formData.country ||
-//     !formData.city ||
-//     !formData.street ||
-//     !formData.phone
-//   ) {
-//     toast.error('Please fill in all the details first');
-//     return;
-//   }
-  makePDF();
-};
+          makePDF();
+     };
 
     return (
     <>
