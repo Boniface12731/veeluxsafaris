@@ -6,8 +6,8 @@ const NewsletterBox = () => {
   const {backendUrl} = useContext(ShopContext);
   const [emailData, setEmailData] = useState({
     to: '',
-    subject: 'Picture Mart Subscription Added',
-    text: 'Congratulations, your subscription to Picture Mart Monthly emails has been added.Share your experience with other interested users with this link https://picture-mart.vercel.app/',
+    subject: 'Veeluxe Safaris Subscription Added',
+    text: 'Congratulations, your subscription to Veeluxe Safaris Monthly emails has been added',
   });
 
   const handleChange = (e) => {

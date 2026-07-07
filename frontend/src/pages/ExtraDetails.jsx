@@ -513,7 +513,7 @@ const ExtraDetails = () => {
                 Mobile Money (M-Pesa)
             </h3>
             <p className="text-gray-700 mt-2">
-                <span className="font-medium">Phone:</span> 0713486157
+                <span className="font-medium">Phone:</span> 0702873131
             </p>
         </div>
 
