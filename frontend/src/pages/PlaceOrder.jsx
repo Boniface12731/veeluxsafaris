@@ -235,6 +235,47 @@ const PlaceOrder = () => {
           makePDF();
      };
 
+    const extraDetails = () => {
+        navigate('/extra-detals');
+    }
+    const getExtraDetails = JSON.parse(
+        localStorage.getItem("extraDetails")
+    );
+   
+    useEffect(() => {
+        const saved = JSON.parse(
+            localStorage.getItem("extraDetails")
+        );
+
+        const estateDetails = `
+            Name: ${saved.fullName}
+            Gender: ${saved.gender}
+            Nationality: ${saved.nationality}
+            Phone: ${saved.phone}
+            Email: ${saved.email}
+            Travel Type: ${saved.travelType}
+            Departure: ${saved.departureDate}
+            Return: ${saved.returnDate}
+            Adults: ${saved.adults}
+            Children: ${saved.children}
+            Flight Required: ${saved.flightRequired}
+            Departure Airport: ${saved.departureAirport}
+            Preferred Airline: ${saved.airline}
+            Flight Class: ${saved.flightClass}
+            Airport Transfer: ${saved.airportTransfer}
+            Vehicle: ${saved.vehicleType}
+            Pickup: ${saved.pickupLocation}
+            Dropoff: ${saved.dropoffLocation}`;
+            if(saved){
+                setFormData(prev => ({
+                    ...prev,
+                    street: estateDetails
+                }));
+            }
+     }, []);
+
+    console.log(getExtraDetails);
+
     return (
     <>
         <div className='border-t pt-14'>
@@ -269,8 +310,7 @@ const PlaceOrder = () => {
         <form onSubmit={onSubmitHandler} className='flex flex-col sm:flex-row justify-between gap-4 pt-5 sm:pt-14 min-h-[80vh] border-t'>
             {/* ------------- Left Side ---------------- */}
             <div className='flex flex-col gap-4 w-full sm:max-w-[480px]'>
-
-            <div className='text-xl sm:text-2xl my-3'>
+                <div className='text-xl sm:text-2xl my-3'>
                 <Title text1={'BOOKING'} text2={'DETAILS'} />
             </div>
             <div className='flex gap-3'>
@@ -285,52 +325,71 @@ const PlaceOrder = () => {
             {/*
                 <input onChange={onChangeHandler} name='state' value={formData.state} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='State'/>
             */}
-            <input required onChange={onChangeHandler} name='street' value={formData.street} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='Estate'/>
-
+            <input 
+                type="hidden"
+                required onChange={onChangeHandler} 
+                name='street' 
+                value={formData.street} 
+                className='border border-gray-300 rounded py-1.5 px-3.5 w-full' 
+                placeholder='Additional Fields'/>
             </div>
 
             <div className='flex gap-3'>
                 {/*
                     <input required onChange={onChangeHandler} name='zipcode' value={formData.zipcode} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="number" placeholder='Zipcode' />
                 */}
-            </div>        
+            </div>   
+
+            <button onClick={extraDetails} 
+                className='bg-amber-500 text-white px-8 py-3 text-sm rounded-full hover:bg-amber-600 hover:shadow-xl hover:-translate-y-1 transition transform duration-300'>
+                Additional Details
+            </button>    
+
+              {/* <div className='w-full text-end mt-8 flex justify-start'>    */}
+                    <button
+                        type="submit"
+                        // disabled={!paymentStatus}
+                        className={`bg-green-500 rounded-full text-white px-16 py-3 text-sm hover:bg-green-600 transition-all `}>
+                            Reserve Your Safari
+                    </button>
+                    
+                {/* </div>  */}
             </div>
 
             {/* ------------- Right Side ------------------ */}
             <div className='mt-8'>
-                <div className='mt-12'>
-                    <Title text1={'Payment'} text2={'Method'}/>
+            <div className='mt-12'>
+                    {/* <Title text1={'Payment'} text2={'Method'}/>
                         <div className='text-sm text-gray-500 mt-6 flex flex-col gap-2'>
                             <p>✔ Secure M-Pesa payment</p>
                             <p>✔ Local team support available</p>
                             <p>✔ Booking confirmation sent by email</p>
-                        </div>
+                        </div> */}
 
-                    <input required onChange={onChangeHandler} name='phone' value={formData.phone} className='border border-gray-300 rounded py-1.5 px-3.5 w-full mt-4' type="number" placeholder='Enter Mpesa Number'/>
-                    {/* --------------- Payment Method Selection ------------- */}
-                    <div className='flex gap-3 flex-col lg:flex-row mt-6'>   
-                        <div onClick={() => setMethod('cod')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
-                            <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'cod' ? 'bg-green-400' : ''}`}></p>
-                            <img className='h-5 mx-4' src={assets.razorpay_logo} alt="" />
-                        </div> 
-                    </div>   
+                {/* <input required onChange={onChangeHandler} name='phone' value={formData.phone} className='border border-gray-300 rounded py-1.5 px-3.5 w-full mt-4' type="number" placeholder='Enter Mpesa Number'/> */}
+                {/* --------------- Payment Method Selection ------------- */}
+                {/* <div className='flex gap-3 flex-col lg:flex-row mt-6'>   
+                    <div onClick={() => setMethod('cod')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
+                        <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'cod' ? 'bg-green-400' : ''}`}></p>
+                        <img className='h-5 mx-4' src={assets.razorpay_logo} alt="" />
+                    </div> 
+                </div>    */}
 
-                <div className='flex justify-start my-20 w-full sm:w-[450px]'>
+                {/* <div className='flex justify-start my-20 w-full sm:w-[450px]'>
                     <Mpesa onPay={handlePaymentWithPDF}/>
-                </div>
+                </div> */}
                     
-                <p>Check for the payment promt on your mobile device and enter your mpesa pin</p>
+                {/* <p>Check for the payment promt on your mobile device and enter your mpesa pin</p> */}
+                {/* <div className='w-full text-end mt-8 flex justify-start'>   
+                    <button
+                        type="submit"
+                        // disabled={!paymentStatus}
+                        className={`bg-green-500 rounded-full text-white px-16 py-3 text-sm hover:bg-green-600 transition-all `}>
+                            Reserve Your Safari
+                    </button>
+                    
+                </div> */}
 
-                <div className='w-full text-end mt-8 flex justify-start'>   
-                <button
-                type="submit"
-                disabled={!paymentStatus}
-                className={`bg-green-500 rounded-full text-white px-16 py-3 text-sm hover:bg-green-600 transition-all ${
-                    !paymentStatus ? 'opacity-50 cursor-not-allowed' : ''
-                }`}> Reserve Your Safari
-                </button>
-                    
-                    </div>
                 </div>
             </div>
         </form> 

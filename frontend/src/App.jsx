@@ -19,6 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import lionsHero from '../src/assets/lionsHero.png'
 import diani from '../src/assets/diani.png'
+import ExtraDetails from './pages/ExtraDetails.jsx'
 
 
 const App = () => {
@@ -40,6 +41,7 @@ const App = () => {
         <Route path='/cart' element={<Cart />} />
         <Route path='/home' element={<Home />} />
         <Route path='/place-order' element={<PlaceOrder />} />
+        <Route path='/extra-detals' element={<ExtraDetails/>} />
         <Route path='/orders' element={<Orders />} />
         <Route path='/forgot-password' element={<ForgotPassword/>} />
       </Routes>
