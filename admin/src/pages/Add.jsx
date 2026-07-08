@@ -12,6 +12,11 @@ const Add = ({token}) => {
   const [image4,setImage4] = useState(false)
 
    const [name, setName] = useState("");
+   const [tagLine, setTagLine] = useState("");
+   const [location, setLocation] = useState("");
+   const [duration, setDuration] = useState("");
+   const [included, setIncluded] = useState("");
+   const [excluded, setExcluded] = useState("");
    const [description, setDescription] = useState("");
    const [price, setPrice] = useState("");
    const [category, setCategory] = useState("Safari");
@@ -24,10 +29,14 @@ const Add = ({token}) => {
 
     try {
       const formData = new FormData()
-
       formData.append("name", name)
       formData.append("description",description)
       formData.append("price",price)
+      formData.append("tagLine",tagLine)
+      formData.append("location",location)
+      formData.append("duration",duration)
+      formData.append("included",included)
+      formData.append("excluded",excluded) 
       formData.append("category",category)
       formData.append("subCategory",subCategory)
       formData.append("bestseller",bestseller)
@@ -50,6 +59,11 @@ const Add = ({token}) => {
         setImage3(false)
         setImage4(false)
         setPrice('')
+        setTagLine('')
+        setLocation('')
+        setDuration('')
+        setIncluded('')
+        setExcluded('')
       } else {
         toast.error(response.data.message)
       }
@@ -87,7 +101,32 @@ const Add = ({token}) => {
 
         <div className='w-full'>
           <p className='mb-2'>Destination name</p>
-          <input onChange={(e)=>setName(e.target.value)} value={name} className='w-full max-w-[500px] px-3 py-2' type="text" placeholder='Type here' required/>
+          <input onChange={(e)=>setName(e.target.value)} value={name} className='w-full max-w-[500px] px-3 py-2' type="text" placeholder='Destination Name' required/>
+        </div>
+
+        <div className='w-full'>
+          <p className='mb-2'>Tagline</p>
+          <input onChange={(e)=>setTagLine(e.target.value)} value={tagLine} className='w-full max-w-[500px] px-3 py-2' type="text" placeholder='Tagline' required/>
+        </div>
+
+         <div className='w-full'>
+          <p className='mb-2'>Location</p>
+          <input onChange={(e)=>setLocation(e.target.value)} value={location} className='w-full max-w-[500px] px-3 py-2' type="text" placeholder='Location' required/>
+        </div>
+
+         <div className='w-full'>
+          <p className='mb-2'>Duration</p>
+          <input onChange={(e)=>setDuration(e.target.value)} value={duration} className='w-full max-w-[500px] px-3 py-2' type="text" placeholder='Duration' required/>
+        </div>
+
+        <div className='w-full'>
+          <p className='mb-2'>What's Included</p>
+          <input onChange={(e)=>setIncluded(e.target.value)} value={included} className='w-full max-w-[500px] px-3 py-2' type="text" placeholder='Whats Included' required/>
+        </div>
+
+         <div className='w-full'>
+          <p className='mb-2'>What's Excluded</p>
+          <input onChange={(e)=>setExcluded(e.target.value)} value={excluded} className='w-full max-w-[500px] px-3 py-2' type="text" placeholder='Whats Excluded' required/>
         </div>
 
         <div className='w-full'>
@@ -95,8 +134,9 @@ const Add = ({token}) => {
           <textarea onChange={(e)=>setDescription(e.target.value)} value={description} className='w-full max-w-[500px] px-3 py-2' type="text" placeholder='Write content here' required/>
         </div>
 
-        <div className='flex flex-col sm:flex-row gap-2 w-full sm:gap-8'>
 
+
+        <div className='flex flex-col sm:flex-row gap-2 w-full sm:gap-8'>
             <div>
               <p className='mb-2'>Destination category</p>
               <select onChange={(e) => setCategory(e.target.value)} className='w-full px-3 py-2'>

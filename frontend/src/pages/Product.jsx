@@ -52,7 +52,7 @@ const Product = () => {
         {/* Tour Info */}
         <div className='flex-1'>
           <p className='text-amber-700 uppercase tracking-wide text-sm font-semibold'>
-            Best Safari Experience
+            Best {productData.category} Experience
           </p>
 
           <h1 className='font-semibold text-3xl mt-2 text-gray-900'>
@@ -72,10 +72,89 @@ const Product = () => {
             {currency}{productData.price}
             <span className='text-base text-gray-500 font-normal'> / person</span>
           </p>
+            
+          {/* <p className='mt-5 text-gray-600 leading-7 md:w-4/5'>
+            {productData.tagLine}
+          </p>
+
+           <p className='mt-5 text-gray-600 leading-7 md:w-4/5'>
+            {productData.location}
+          </p>
+           <p className='mt-5 text-gray-600 leading-7 md:w-4/5'>
+            {productData.duration}
+          </p>
+
+           <p className='mt-5 text-gray-600 leading-7 md:w-4/5'>
+            {productData.included}
+          </p>
+
+           <p className='mt-5 text-gray-600 leading-7 md:w-4/5'>
+            {productData.excluded}
+          </p>
 
           <p className='mt-5 text-gray-600 leading-7 md:w-4/5'>
             {productData.description}
-          </p>
+          </p> */}
+
+
+   {/* Details Card */}
+  <div className="mt-8 bg-white border rounded-2xl shadow-md p-6 space-y-5">
+
+    <div>
+      <h3 className="text-sm font-semibold text-gray-500 uppercase">
+        Tagline
+      </h3>
+      <p className="text-gray-700 mt-1">
+        {productData.tagLine}
+      </p>
+    </div>
+
+    <div className="border-t pt-4">
+      <h3 className="text-sm font-semibold text-gray-500 uppercase">
+        Location
+      </h3>
+      <p className="text-gray-700 mt-1">
+        📍 {productData.location}
+      </p>
+    </div>
+
+    <div className="border-t pt-4">
+      <h3 className="text-sm font-semibold text-gray-500 uppercase">
+        Duration
+      </h3>
+      <p className="text-gray-700 mt-1">
+        ⏱ {productData.duration}
+      </p>
+    </div>
+
+    <div className="border-t pt-4">
+      <h3 className="text-sm font-semibold text-gray-500 uppercase">
+        What's Included
+      </h3>
+      <p className="text-green-700 mt-1">
+        ✔ {productData.included}
+      </p>
+    </div>
+
+    <div className="border-t pt-4">
+      <h3 className="text-sm font-semibold text-gray-500 uppercase">
+        What's Excluded
+      </h3>
+      <p className="text-red-600 mt-1">
+        ✖ {productData.excluded}
+      </p>
+    </div>
+
+    <div className="border-t pt-4">
+      <h3 className="text-sm font-semibold text-gray-500 uppercase">
+        Product Description
+      </h3>
+      <p className="text-gray-600 leading-7 mt-1">
+        {productData.description}
+      </p>
+    </div>
+  </div>
+
 
           <div className='mt-6 flex flex-wrap gap-3'>
               {/* <span className='bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm'>
