@@ -48,6 +48,7 @@ const Product = () => {
             <img className='w-full h-auto rounded-xl shadow-md' src={image} alt="" />
           </div>
         </div>
+ 
 
         {/* Tour Info */}
         <div className='flex-1'>
@@ -73,115 +74,87 @@ const Product = () => {
             <span className='text-base text-gray-500 font-normal'> / person</span>
           </p>
             
-          {/* <p className='mt-5 text-gray-600 leading-7 md:w-4/5'>
-            {productData.tagLine}
-          </p>
+          {/* Details Card */}
+          <div className="mt-8 bg-white border-2 border-amber-200 rounded-2xl shadow-lg p-6">
+            {/* Tagline */}
+            <div className="mb-6">
+              <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                Tagline
+              </h3>
+              <p className="text-gray-700 mt-2 italic">
+                {productData.tagLine}
+              </p>
+            </div>
 
-           <p className='mt-5 text-gray-600 leading-7 md:w-4/5'>
-            {productData.location}
-          </p>
-           <p className='mt-5 text-gray-600 leading-7 md:w-4/5'>
-            {productData.duration}
-          </p>
+            {/* Quick Info Grid */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="border rounded-lg p-4">
+                <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                  Location
+                </h3>
+                <p className="text-gray-700 mt-2">
+                  📍 {productData.location}
+                </p>
+              </div>
 
-           <p className='mt-5 text-gray-600 leading-7 md:w-4/5'>
-            {productData.included}
-          </p>
+              <div className="border rounded-lg p-4">
+                <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                  Duration
+                </h3>
+                <p className="text-gray-700 mt-2">
+                  ⏱ {productData.duration}
+                </p>
+              </div>
 
-           <p className='mt-5 text-gray-600 leading-7 md:w-4/5'>
-            {productData.excluded}
-          </p>
+              <div className="border rounded-lg p-4">
+                <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                  What's Included
+                </h3>
+                <p className="text-green-700 mt-2">
+                  ✔ {productData.included}
+                </p>
+              </div>
 
-          <p className='mt-5 text-gray-600 leading-7 md:w-4/5'>
-            {productData.description}
-          </p> */}
+              <div className="border rounded-lg p-4">
+                <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                  What's Excluded
+                </h3>
+                <p className="text-red-600 mt-2">
+                  ✖ {productData.excluded}
+                </p>
+              </div>
 
+            </div>
 
-   {/* Details Card */}
-  <div className="mt-8 bg-white border rounded-2xl shadow-md p-6 space-y-5">
+            {/* Description */}
+            <div className="mt-6 border-t pt-5">
+              <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                Tour Overview
+              </h3>
 
-    <div>
-      <h3 className="text-sm font-semibold text-gray-500 uppercase">
-        Tagline
-      </h3>
-      <p className="text-gray-700 mt-1">
-        {productData.tagLine}
-      </p>
-    </div>
+              <p className="text-gray-600 leading-7 mt-2">
+                {productData.description}
+              </p>
+            </div>
 
-    <div className="border-t pt-4">
-      <h3 className="text-sm font-semibold text-gray-500 uppercase">
-        Location
-      </h3>
-      <p className="text-gray-700 mt-1">
-        📍 {productData.location}
-      </p>
-    </div>
-
-    <div className="border-t pt-4">
-      <h3 className="text-sm font-semibold text-gray-500 uppercase">
-        Duration
-      </h3>
-      <p className="text-gray-700 mt-1">
-        ⏱ {productData.duration}
-      </p>
-    </div>
-
-    <div className="border-t pt-4">
-      <h3 className="text-sm font-semibold text-gray-500 uppercase">
-        What's Included
-      </h3>
-      <p className="text-green-700 mt-1">
-        ✔ {productData.included}
-      </p>
-    </div>
-
-    <div className="border-t pt-4">
-      <h3 className="text-sm font-semibold text-gray-500 uppercase">
-        What's Excluded
-      </h3>
-      <p className="text-red-600 mt-1">
-        ✖ {productData.excluded}
-      </p>
-    </div>
-
-    <div className="border-t pt-4">
-      <h3 className="text-sm font-semibold text-gray-500 uppercase">
-        Product Description
-      </h3>
-      <p className="text-gray-600 leading-7 mt-1">
-        {productData.description}
-      </p>
-    </div>
-  </div>
-
-
-          <div className='mt-6 flex flex-wrap gap-3'>
-              {/* <span className='bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm'>
-              Big Five Safari
-              </span> */}
-              <span className='bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm'>
-              Professional Guides
-              </span>
-              <span className='bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm'>
-              Scenic Destinations
-              </span>
-              <span className='bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm'>
-              Photography Friendly
-              </span>
           </div>
 
 
-          {/* Highlights */}
           <div className='mt-6 flex flex-wrap gap-3'>
-            {/* <span className='bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm'>
-              Wildlife Safari
-            </span> */}
-            <span className='bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm'>
-              Guided Tour
+              <span className='bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm'>
+                  Professional Guides
+              </span>
+              <span className='bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm'>
+                  Scenic Destinations
+              </span>
+              <span className='bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm'>
+                  Photography Friendly
+              </span>
+               <span className='bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm'>
+                  Guided Tour
             </span>
-            <span className='bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm'>
-              Scenic Destinations
+             <span className='bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm'>
+                 Scenic Destinations
             </span>
           </div>
 

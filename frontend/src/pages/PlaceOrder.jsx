@@ -135,8 +135,8 @@ const PlaceOrder = () => {
 
     const [emailData, setEmailData] = useState({
         to: 'bonyosuks12731@gmail.com',
-        subject: 'Veelux Safaris - Booking Confirmation',
-        text: 'Payment Received Successfully'
+        subject: 'Veeluxe Safaris - Booking Confirmation',
+        text: 'Booking Reserved Successfully'
     });
 
      const sendEmail = async ()=> {
@@ -348,7 +348,7 @@ const PlaceOrder = () => {
               {/* <div className='w-full text-end mt-8 flex justify-start'>    */}
                     <button
                         type="submit"
-                        // disabled={!paymentStatus}
+                       onClick={sendEmail}
                         className={`bg-green-500 rounded-full text-white px-16 py-3 text-sm hover:bg-green-600 transition-all `}>
                             Reserve Your Safari
                     </button>

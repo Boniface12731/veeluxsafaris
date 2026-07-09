@@ -23,6 +23,7 @@ const Add = ({token}) => {
    const [subCategory, setSubCategory] = useState("Scenes");
    const [bestseller, setBestseller] = useState(false);
    const [sizes, setSizes] = useState([]);
+   const [loading, setLoading] = useState(false);
 
    const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -47,6 +48,7 @@ const Add = ({token}) => {
       image3 && formData.append("image3",image3)
       image4 && formData.append("image4",image4)
 
+      setLoading(true);
       const response = await axios.post(backendUrl + "/api/product/add",formData,{headers:{token}})
       console.log(response.data);
 
@@ -67,9 +69,12 @@ const Add = ({token}) => {
       } else {
         toast.error(response.data.message)
       }
+      setLoading(false);
+
     } catch (error) {
       console.log(error);
       toast.error(error.message)
+      setLoading(false);
     }
    }
 
@@ -134,15 +139,38 @@ const Add = ({token}) => {
           <textarea onChange={(e)=>setDescription(e.target.value)} value={description} className='w-full max-w-[500px] px-3 py-2' type="text" placeholder='Write content here' required/>
         </div>
 
-
-
         <div className='flex flex-col sm:flex-row gap-2 w-full sm:gap-8'>
             <div>
               <p className='mb-2'>Destination category</p>
               <select onChange={(e) => setCategory(e.target.value)} className='w-full px-3 py-2'>
-                  <option value="Safari">Safari</option>
-                  <option value="Beach">Beach</option>
-                  <option value="Hiking">Hiking</option>
+                <option value="Safari">Safari</option>
+                <option value="Beach">Beach</option>
+                <option value="Hiking">Hiking</option>
+                <option value="Camping">Camping</option>
+                <option value="Wildlife">Wildlife</option>
+                <option value="Cultural">Cultural</option>
+                <option value="Historical">Historical</option>
+                <option value="City Tour">City Tour</option>
+                <option value="Road Trip">Road Trip</option>
+                <option value="Mountain Climbing">Mountain Climbing</option>
+                <option value="Nature Walk">Nature Walk</option>
+                <option value="Bird Watching">Bird Watching</option>
+                <option value="Marine Tour">Marine Tour</option>
+                <option value="Boat Cruise">Boat Cruise</option>
+                <option value="Island Tour">Island Tour</option>
+                <option value="Photography">Photography</option>
+                <option value="Luxury">Luxury</option>
+                <option value="Family">Family</option>
+                <option value="Honeymoon">Honeymoon</option>
+                <option value="Weekend Getaway">Weekend Getaway</option>
+                <option value="Educational">Educational</option>
+                <option value="Team Building">Team Building</option>
+                <option value="Camping & Bonfire">Camping & Bonfire</option>
+                <option value="Water Sports">Water Sports</option>
+                <option value="Eco Tourism">Eco Tourism</option>
+                <option value="Festival">Festival</option>
+                <option value="Religious">Religious</option>
+                <option value="Food & Culinary">Food & Culinary</option>
               </select>
             </div>
 
@@ -164,8 +192,8 @@ const Add = ({token}) => {
         <div>
           <p className='mb-2'>Package Type</p>
           <div className='flex gap-3'>
-            <div onClick={()=>setSizes(prev => prev.includes("Single") ? prev.filter( item => item !== "Single") : [...prev,"Single"])}>
-              <p className={`${sizes.includes("Single") ? "bg-pink-100" : "bg-slate-200" } px-3 py-1 cursor-pointer`}>Single</p>
+            <div onClick={()=>setSizes(prev => prev.includes("Individual") ? prev.filter( item => item !== "Individual") : [...prev,"Individual"])}>
+              <p className={`${sizes.includes("Individual") ? "bg-pink-100" : "bg-slate-200" } px-3 py-1 cursor-pointer`}>Individual</p>
             </div>
             
             <div onClick={()=>setSizes(prev => prev.includes("Group") ? prev.filter( item => item !== "Group") : [...prev,"Group"])}>
@@ -194,11 +222,31 @@ const Add = ({token}) => {
           <label className='cursor-pointer' htmlFor="bestseller">Add to Popular packages</label>
         </div>
 
-        <button 
+        {/* <button 
           className='mt-8 bg-amber-500 text-white px-8 py-3 text-sm rounded-full hover:bg-amber-600 hover:shadow-xl hover:-translate-y-1 transition transform duration-300'
           type="submit">
           ADD
+        </button> */}
+
+        <button
+            type="submit"
+            disabled={loading}
+            className={`mt-8 px-8 py-3 rounded-full text-white text-sm flex items-center justify-center gap-2 transition duration-300
+            ${loading
+            ? "bg-gray-400 cursor-not-allowed"
+            : "bg-amber-500 hover:bg-amber-600 hover:shadow-xl hover:-translate-y-1"
+            }`}
+            >
+            {loading ? (
+            <>
+            <div className="w-5 h-5 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+            Uploading...
+            </>
+            ) : (
+            "ADD"
+            )}
         </button>
+
     </form>
     </>
   )
