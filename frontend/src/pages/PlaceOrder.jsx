@@ -246,26 +246,29 @@ const PlaceOrder = () => {
         const saved = JSON.parse(
             localStorage.getItem("extraDetails")
         );
-
+        if(!saved){
+            return;
+        }
         const estateDetails = `
-            Name: ${saved.fullName}
-            Gender: ${saved.gender}
-            Nationality: ${saved.nationality}
-            Phone: ${saved.phone}
-            Email: ${saved.email}
-            Travel Type: ${saved.travelType}
-            Departure: ${saved.departureDate}
-            Return: ${saved.returnDate}
-            Adults: ${saved.adults}
-            Children: ${saved.children}
-            Flight Required: ${saved.flightRequired}
-            Departure Airport: ${saved.departureAirport}
-            Preferred Airline: ${saved.airline}
-            Flight Class: ${saved.flightClass}
-            Airport Transfer: ${saved.airportTransfer}
-            Vehicle: ${saved.vehicleType}
-            Pickup: ${saved.pickupLocation}
-            Dropoff: ${saved.dropoffLocation}`;
+                Name: ${saved.fullName || ''}
+                Gender: ${saved.gender || ''}
+                Nationality: ${saved.nationality || ''}
+                Phone: ${saved.phone || ''}
+                Email: ${saved.email || ''}
+                Travel Type: ${saved.travelType || ''}
+                Departure: ${saved.departureDate || ''}
+                Return: ${saved.returnDate || ''}
+                Adults: ${saved.adults || ''}
+                Children: ${saved.children || ''}
+                Flight Required: ${saved.flightRequired || ''}
+                Departure Airport: ${saved.departureAirport || ''}
+                Preferred Airline: ${saved.airline || ''}
+                Flight Class: ${saved.flightClass || ''}
+                Airport Transfer: ${saved.airportTransfer || ''}
+                Vehicle: ${saved.vehicleType || ''}
+                Pickup: ${saved.pickupLocation || ''}
+                Dropoff: ${saved.dropoffLocation || ''}    
+        `;
             if(saved){
                 setFormData(prev => ({
                     ...prev,
